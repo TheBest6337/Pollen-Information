@@ -1,0 +1,26 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pollen Information konfigurieren",
+        "description": "Geben Sie Ihren API-Schlüssel von polleninformation.at und den zu überwachenden Standort ein. Die Daten werden vom Österreichischen Polleninformationsdienst (www.polleninformation.at) bereitgestellt.",
+        "data": {
+          "api_key": "API-Schlüssel",
+          "country": "Land (ISO 3166-1 Alpha-2, z. B. AT, DE, CH)",
+          "language": "Antwortsprache (ISO 639-1, z. B. en, de)",
+          "latitude": "Breitengrad",
+          "longitude": "Längengrad",
+          "update_interval": "Aktualisierungsintervall in Minuten (Minimum 10, empfohlen 240)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zu polleninformation.at nicht möglich. Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "invalid_api_key": "Ungültiger API-Schlüssel. Fordern Sie einen gültigen Schlüssel über das Kontaktformular auf polleninformation.at an.",
+      "unknown": "Ein unerwarteter Fehler ist aufgetreten. Überprüfen Sie die Home Assistant-Protokolle für Details."
+    },
+    "abort": {
+      "already_configured": "Dieser Pollen Information-Standort ist bereits konfiguriert."
+    }
+  }
+}

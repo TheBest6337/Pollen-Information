@@ -1,0 +1,26 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurer Pollen Information",
+        "description": "Entrez votre clé API polleninformation.at et l'emplacement que vous souhaitez surveiller. Les données sont fournies par le Service autrichien d'information sur le pollen (www.polleninformation.at).",
+        "data": {
+          "api_key": "Clé API",
+          "country": "Pays (ISO 3166-1 alpha-2, ex. AT, DE, CH)",
+          "language": "Langue de réponse (ISO 639-1, ex. en, de)",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "update_interval": "Intervalle de mise à jour en minutes (minimum 10, recommandé 240)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de se connecter à polleninformation.at. Vérifiez votre connexion Internet et réessayez.",
+      "invalid_api_key": "Clé API invalide. Demandez une clé valide via le formulaire de contact sur polleninformation.at.",
+      "unknown": "Une erreur inattendue s'est produite. Consultez les journaux de Home Assistant pour plus de détails."
+    },
+    "abort": {
+      "already_configured": "Cet emplacement de Pollen Information est déjà configuré."
+    }
+  }
+}

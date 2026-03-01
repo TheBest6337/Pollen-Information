@@ -1,0 +1,26 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Pollen Information",
+        "description": "Enter your polleninformation.at API key and location to start receiving pollen forecasts. Data is provided by the Österreichischer Polleninformationsdienst (www.polleninformation.at).",
+        "data": {
+          "api_key": "API Key",
+          "country": "Country (ISO 3166-1 alpha-2)",
+          "language": "Language (ISO 639-1)",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "update_interval": "Update interval (minutes, minimum 10)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to polleninformation.at. Please check your internet connection.",
+      "invalid_api_key": "Invalid API key. Please request a valid key from polleninformation.at.",
+      "unknown": "An unexpected error occurred. Please try again."
+    },
+    "abort": {
+      "already_configured": "This location is already configured."
+    }
+  }
+}
