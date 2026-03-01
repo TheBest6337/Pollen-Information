@@ -1,4 +1,4 @@
-"""Pollen Sensor integration – polleninformation.at."""
+"""Pollen Information integration – polleninformation.at."""
 from __future__ import annotations
 
 import logging
@@ -26,7 +26,7 @@ PLATFORMS = ["sensor"]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up Pollen Sensor from a config entry."""
+    """Set up Pollen Information from a config entry."""
 
     api = PollenAPI(
         api_key=entry.data[CONF_API_KEY],

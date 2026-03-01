@@ -1,4 +1,4 @@
-"""Sensor platform for the Pollen Sensor integration."""
+"""Sensor platform for the Pollen Information integration."""
 from __future__ import annotations
 
 import datetime
@@ -42,7 +42,7 @@ async def async_setup_entry(
     entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Pollen sensors for a config entry."""
+    """Set up Pollen Informations for a config entry."""
     coordinator: DataUpdateCoordinator = hass.data[DOMAIN][entry.entry_id]
 
     entities: list[SensorEntity] = []

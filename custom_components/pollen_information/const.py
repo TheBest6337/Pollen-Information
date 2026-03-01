@@ -1,4 +1,4 @@
-"""Constants for the Pollen Sensor integration (polleninformation.at)."""
+"""Constants for the Pollen Information integration (polleninformation.at)."""
 
 DOMAIN = "pollen_information"
 

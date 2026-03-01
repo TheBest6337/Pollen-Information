@@ -1,4 +1,4 @@
-# GitHub Copilot Instructions – Pollen Sensor (polleninformation.at)
+# GitHub Copilot Instructions – Pollen Information (polleninformation.at)
 
 ## Project overview
 

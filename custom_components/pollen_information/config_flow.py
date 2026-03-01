@@ -1,4 +1,4 @@
-"""Config flow for the Pollen Sensor integration."""
+"""Config flow for the Pollen Information integration."""
 from __future__ import annotations
 
 import logging
@@ -28,7 +28,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class PollenInformationConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle the UI config flow for Pollen Sensor."""
+    """Handle the UI config flow for Pollen Information."""
 
     VERSION = 1
 
