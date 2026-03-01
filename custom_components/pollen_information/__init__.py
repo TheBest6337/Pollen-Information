@@ -25,6 +25,32 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORMS = ["sensor"]
 
 
+class PollenInformationCoordinator(DataUpdateCoordinator):
+    """Coordinator that polls polleninformation.at on a configurable interval."""
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        api: PollenAPI,
+        update_interval_minutes: int,
+    ) -> None:
+        self._api = api
+        self._session = async_get_clientsession(hass)
+        super().__init__(
+            hass,
+            _LOGGER,
+            name=DOMAIN,
+            update_interval=timedelta(minutes=update_interval_minutes),
+        )
+
+    async def _async_update_data(self):
+        """Fetch fresh data from the API."""
+        try:
+            return await self._api.async_get_data(self._session)
+        except (CannotConnectError, InvalidApiKeyError) as err:
+            raise UpdateFailed(f"Error communicating with API: {err}") from err
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Pollen Information from a config entry."""
 
@@ -36,23 +62,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         longitude=entry.data[CONF_LONGITUDE],
     )
 
-    session = async_get_clientsession(hass)
     update_interval = entry.data.get(CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL)
 
-    async def _async_update_data():
-        """Fetch data from the API."""
-        try:
-            return await api.async_get_data(session)
-        except (CannotConnectError, InvalidApiKeyError) as err:
-            raise UpdateFailed(f"Error communicating with API: {err}") from err
-
-    coordinator = DataUpdateCoordinator(
-        hass,
-        _LOGGER,
-        name=DOMAIN,
-        update_method=_async_update_data,
-        update_interval=timedelta(minutes=update_interval),
-    )
+    coordinator = PollenInformationCoordinator(hass, api, update_interval)
 
     await coordinator.async_config_entry_first_refresh()
 
