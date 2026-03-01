@@ -21,7 +21,7 @@ A Home Assistant custom integration that exposes pollen contamination and allerg
 
 1. Open HACS in your Home Assistant instance
 2. Go to **Integrations** → three-dot menu → **Custom repositories**
-3. Add `https://github.com/TheBest6337/Pollensensor` with category **Integration**
+3. Add `https://github.com/TheBest6337/Pollen-Information` with category **Integration**
 4. Search for **Pollen Information** and install it
 5. Restart Home Assistant
 
@@ -50,7 +50,7 @@ A Home Assistant custom integration that exposes pollen contamination and allerg
 ## Links
 
 - [polleninformation.at API documentation](https://www.polleninformation.at/datenschnittstelle)
-- [Issue tracker](https://github.com/TheBest6337/Pollensensor/issues)
+- [Issue tracker](https://github.com/TheBest6337/Pollen-Information/issues)
 
 ## License
 
