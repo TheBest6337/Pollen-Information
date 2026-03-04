@@ -64,7 +64,7 @@ async def async_setup_entry(
     for day_idx in range(1, 5):
         entities.append(AllergyRiskHourlySensor(coordinator, entry, day_idx))
 
-    async_add_entities(entities, update_before_add=True)
+    async_add_entities(entities)
 
 
 # ──────────────────────────────────────────────────────────────────────────────

@@ -31,6 +31,7 @@ class PollenInformationCoordinator(DataUpdateCoordinator):
     def __init__(
         self,
         hass: HomeAssistant,
+        entry: ConfigEntry,
         api: PollenAPI,
         update_interval_minutes: int,
     ) -> None:
@@ -41,6 +42,7 @@ class PollenInformationCoordinator(DataUpdateCoordinator):
             _LOGGER,
             name=DOMAIN,
             update_interval=timedelta(minutes=update_interval_minutes),
+            config_entry=entry,
         )
 
     async def _async_update_data(self):
@@ -64,7 +66,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     update_interval = entry.data.get(CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL)
 
-    coordinator = PollenInformationCoordinator(hass, api, update_interval)
+    coordinator = PollenInformationCoordinator(hass, entry, api, update_interval)
 
     await coordinator.async_config_entry_first_refresh()
 
